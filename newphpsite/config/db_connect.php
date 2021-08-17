@@ -18,7 +18,8 @@
         ini_set('display_startup_errors', 1);
         include_once 'error_handling.php';
 
-        error_show();
+        // comment / uncomment to show errors from log.
+        // error_show();
     }
 
     // connect to database - development.
@@ -41,10 +42,12 @@
     }
 
     // // test our new functions.
-    // // dump('test error string');
+    // dump('test error string');
+    // error_show();
     // error_catch('test error string1');
     // error_catch('test error string2');
     // error_catch('test error string3');
-    // error_show();
+    // error_catch('test error blqblqblq');
+    // error_catch('test error asdsadsada');
 
 ?>
