@@ -1,28 +1,29 @@
 <?php
+    
+    // details.php
+    include('config/db_connect.php');
 
-include('config/db_connect.php');
+    $datePickerFrom = $datePickerTo = '';
 
-$datePickerFrom = $datePickerTo = '';
-
-if(isset($_POST['submit'])){
-    if(empty($_POST['datePickerFrom'])){
-        //echo "Required <br />";
-    } else {
-        $datePickerFrom = $_POST['datePickerFrom'];
-    //  echo ($_POST['datePickerFrom']);
+    if(isset($_POST['submit'])){
+        if(empty($_POST['datePickerFrom'])){
+            // echo "Required <br />";
+        } else {
+            $datePickerFrom = $_POST['datePickerFrom'];
+            // echo ($_POST['datePickerFrom']);
+        }
     }
-}
 
+    if(isset($_POST['submit'])){
+       if(empty($_POST['datePickerTo'])){
+            // echo "Required <br />";
+       } else {
+           $datePickerTo = $_POST['datePickerTo'];
+            // echo ($_POST['datePickerTo']);
+       }
+    }
 
-if(isset($_POST['submit'])){
-   if(empty($_POST['datePickerTo'])){
-       //echo "Required <br />";
-   } else {
-       $datePickerTo = $_POST['datePickerTo'];
-    // echo ($_POST['datePickerTo']);
-   }
-}
-$sql2 = "SELECT * FROM cvs WHERE birthdaydate >= '$datePickerFrom' AND birthdaydate <= '$datePickerTo';";
+    $sql2 = "SELECT * FROM cvs WHERE birthdaydate >= '$datePickerFrom' AND birthdaydate <= '$datePickerTo';";
     // echo $sql2;
     $result = mysqli_query($conn, $sql2);
     $cvs = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -38,9 +39,6 @@ $sql2 = "SELECT * FROM cvs WHERE birthdaydate >= '$datePickerFrom' AND birthdayd
 <h4 class="center grey-text">CVs!</h4>
 <p class="center">Hello, on this page you can see all created CV's by date you've chosen!</p>
 <div class="container">
-
-   
-
     <div class="row">
         <?php foreach ($cvs as $cv) : ?>
             <div class="col s6 md3">

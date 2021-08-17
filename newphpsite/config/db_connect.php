@@ -6,7 +6,10 @@
     $db_pass = "";
     $db_table = "cv_creator";
 
+    // is it live or in development.
     $development = true;
+
+    // is it in debug mode.
     $debug = true;
 
     if ($debug == true) {
@@ -21,7 +24,7 @@
     }
     else {
         // connect to database (main).
-        $conn = mysqli_connect('', 'oliviya', 'test1234', 'cv_creator');
+        $conn = mysqli_connect('localhost', 'oliviya', 'test1234', 'cv_creator');
     }
 
     // check the connection
